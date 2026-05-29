@@ -50,14 +50,14 @@
 
 ```mermaid
 graph TD
-    subgraph RaspberryPi [Raspberry Pi 내부 (Localhost)]
-        A[물리 센서 & 카메라 제어 모듈] -->|1. 데이터 발행 Publish| B((MQTT Broker: Mosquitto))
-        B -->|2. 데이터 구독 Subscribe| C[FastAPI 백엔드 서버]
-        C <-->|3. 비동기 추론 요청/응답| D[독립 AI 추론 엔진]
+    subgraph RaspberryPi [Raspberry Pi 내부 Localhost]
+        A["물리 센서 & 카메라 제어 모듈"] -->|1. 데이터 발행 Publish| B((MQTT Broker: Mosquitto))
+        B -->|2. 데이터 구독 Subscribe| C["FastAPI 백엔드 서버"]
+        C <-->|3. 비동기 추론 요청/응답| D["독립 AI 추론 엔진"]
     end
 
     subgraph External [외부 통신 망]
-        C -->|4. 실시간 상태 전송| E[사용자 스마트폰 앱]
+        C -->|4. 실시간 상태 전송| E["사용자 스마트폰 앱"]
     end
 
     style RaspberryPi fill:#f9f9f9,stroke:#333,stroke-width:2px
